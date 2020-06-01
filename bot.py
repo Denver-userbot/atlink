@@ -14,13 +14,13 @@ def findat(msg):
 def send_welcome(message):
     bot.reply_to(message, 'Please type /register to add your account in our database!')
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '/' in msg.text)
+@bot.message_handler(func=lambda msg: msg.text is not None and '/getlink' in msg.text)
 # lambda function finds messages with the '@' sign in them
 # in case msg.text doesn't exist, the handler doesn't process it
 def at_converter(message):
     texts = message.text.split()
     at_text = findat(texts)
-    if at_text == '/': # in case it's just the '@', skip
+    if at_text == '/getlink ': # in case it's just the '@', skip
         pass
     else:
         insta_link = "https://m.rivalregions.com/#slide/profile/{}".format(at_text[1:])
