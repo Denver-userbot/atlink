@@ -14,7 +14,7 @@ def izdvojiID(tekst):
 @bot.message_handler(commands=['start'])
 def start(message):
     if message.chat.type == "private":
-        bot.reply_to(message, 'Hi, type /add to add your link in our db "Use this format for add your profile /add + link, like this : /add https://m.rivalregions.com/#slide/profile/292833 "')
+        bot.reply_to(message, 'Hi, type /add to add your link in our db Use this format for add your profile /add + link, like this : /add https://m.rivalregions.com/#slide/profile/292833 "')
 
 @bot.message_handler(commands=['add']) # register message handler
 def send_welcome(message):
@@ -22,7 +22,7 @@ def send_welcome(message):
         if 'rivalregions.com/#slide/profile' in message.text:
             id = izdvojiID(message.text)
             #dodajuFajl(id)
-            bot.reply_to(message, 'Link added ! Dont forget to join the Group: [Click Here for Join](https://t.me/joinchat/N7us5VhhlqbvGhPkJoWwwA) ')
+            bot.reply_to(message, 'Link added ! Dont forget to join the Group: [Click Here for Join](tg://user?id=10014827905663) ')
             bot.send_message(-1001301090623,id)
         else:
             bot.reply_to(message, 'Invalid format!')
