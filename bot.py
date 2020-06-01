@@ -14,26 +14,26 @@ def izdvojiID(tekst):
 @bot.message_handler(commands=['start'])
 def start(message):
     if message.chat.type == "private":
-        bot.reply_to(message, 'Hello, type /register to register your profile, eg "/register [your RR profile link here]"')
+        bot.reply_to(message, 'Hi, type /add to add your link in our db "Use this format for add your profile /add + link, like this : /add https://m.rivalregions.com/#slide/profile/292833 "')
 
-@bot.message_handler(commands=['register']) # register message handler
+@bot.message_handler(commands=['add']) # register message handler
 def send_welcome(message):
     if message.chat.type == "private":
         if 'rivalregions.com/#slide/profile' in message.text:
             id = izdvojiID(message.text)
             #dodajuFajl(id)
-            bot.reply_to(message, 'Profile added to our register!')
+            bot.reply_to(message, 'Link added ! Dont forget to join the Group: [Click Here for Join](https://t.me/joinchat/N7us5VhhlqbvGhPkJoWwwA) ')
             bot.send_message(-1001301090623,id)
         else:
-            bot.reply_to(message, 'Wrong format! Type /register [your RR profile link here](without the brackets) like this /register https://rivalregions.com/#slide/profile/1234567')
+            bot.reply_to(message, 'Invalid format!')
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '/getlink' in msg.text)
+@bot.message_handler(func=lambda msg: msg.text is not None and '#' in msg.text)
 # lambda function finds messages with the '@' sign in them
 # in case msg.text doesn't exist, the handler doesn't process it
 def at_converter(message):
     texts = message.text.split()
     at_text = findat(texts)
-    if at_text == '/getlink ': # in case it's just the '@', skip
+    if at_text == '#': # in case it's just the '@', skip
         pass
     else:
         insta_link = "https://m.rivalregions.com/#slide/profile/{}".format(at_text[1:])
