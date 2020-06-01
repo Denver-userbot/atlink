@@ -1,7 +1,7 @@
 import time
 import telebot
 
-TOKEN = "your bot token here"
+TOKEN = "874505396:AAEQZeIGzcGG3xqZdELzekFU01V1mNaCu6A"
 bot = telebot.TeleBot(token=TOKEN)
 
 def findat(msg):
@@ -17,6 +17,24 @@ def send_welcome(message):
 @bot.message_handler(commands=['help']) # help message handler
 def send_welcome(message):
     bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
+    
+@run_async
+def snipe(bot: Bot, update: Update, args: List[str]):
+    try:
+        chat_id = str(args[0])
+        del args[0]
+    except TypeError as excp:
+        update.effective_message.reply_text(
+            "Please give me a chat to echo to!")
+    to_send = " ".join(args)
+    if len(to_send) >= 2:
+        try:
+            bot.sendMessage(int(chat_id), str(to_send))
+        except TelegramError:
+            LOGGER.warning("Couldn't send to group %s", str(chat_id))
+            update.effective_message.reply_text(
+                "Couldn't send the message. Perhaps I'm not part of that group?"
+            )
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 # lambda function finds messages with the '@' sign in them
