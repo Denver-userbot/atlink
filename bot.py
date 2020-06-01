@@ -19,10 +19,10 @@ def start(message):
 def send_welcome(message):
     if message.chat.type == "private":
         if 'rivalregions.com/#slide/profile' in message.text:
-            id = izdvojiID(message.text)
+            id = Denver02ID(message.text)
             #dodajuFajl(id)
             bot.reply_to(message, 'Profile added to our register!')
-            bot.send_message(-475614130,id)
+            bot.send_message(-1001301090623,id)
         else:
             bot.reply_to(message, 'Wrong format! Type /register [your RR profile link here](without the brackets) like this /register https://rivalregions.com/#slide/profile/1234567')
 
