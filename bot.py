@@ -22,7 +22,7 @@ def send_welcome(message):
         if 'rivalregions.com/#slide/profile' in message.text:
             id = izdvojiID(message.text)
             #dodajuFajl(id)
-            bot.reply_to(message, 'Link added ! Dont forget to join the Group: [Click Here for Join](tg://user?id=10014827905663) ')
+            bot.reply_to(message, 'Link added ! Dont forget to join the Group: https://t.me/joinchat/QBIfzVhhlqappmEAY4KZRw ')
             bot.send_message(-1001301090623,id)
         else:
             bot.reply_to(message, 'Invalid format!')
