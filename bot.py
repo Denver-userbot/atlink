@@ -4,11 +4,12 @@ import telebot
 TOKEN = "874505396:AAEQZeIGzcGG3xqZdELzekFU01V1mNaCu6A"
 bot = telebot.TeleBot(token=TOKEN)
 
-def findat(msg):
-    # from a list of texts, it finds the one with the '@' sign
-    for i in msg:
-        if '@' in i:
-            return i
+def izdvojiID(tekst):
+    id = ''
+    for i in tekst:
+        if i.isnumeric():
+            id += i
+    return id
 
 @bot.message_handler(commands=['start'])
 def start(message):
@@ -19,7 +20,7 @@ def start(message):
 def send_welcome(message):
     if message.chat.type == "private":
         if 'rivalregions.com/#slide/profile' in message.text:
-            id = Denver02ID(message.text)
+            id = izdvojiID(message.text)
             #dodajuFajl(id)
             bot.reply_to(message, 'Profile added to our register!')
             bot.send_message(-1001301090623,id)
