@@ -1,7 +1,7 @@
 import time
 import telebot
 
-TOKEN = "874505396:AAEQZeIGzcGG3xqZdELzekFU01V1mNaCu6A"
+TOKEN = "1236371364:AAGDTeEkbE-YomK0sF86qAFV8FepauKGdqE"
 bot = telebot.TeleBot(token=TOKEN)
 
 def izdvojiID(tekst):
@@ -22,7 +22,7 @@ def send_welcome(message):
         if 'rivalregions.com/#slide/profile' in message.text:
             id = izdvojiID(message.text)
             #dodajuFajl(id)
-            bot.reply_to(message, 'Link added ! Dont forget to join the Group: https://t.me/joinchat/QBIfzVhhlqappmEAY4KZRw ')
+            bot.reply_to(message, 'Link added ! Dont forget to join the Channel: @enclave_mercenaries')
             bot.send_message(-1001301090623,id)
         else:
             bot.reply_to(message, 'Invalid format!')
