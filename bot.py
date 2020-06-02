@@ -25,7 +25,7 @@ def send_welcome(message):
             id = izdvojiID(message.text)
             #dodajuFajl(id)
             bot.reply_to(message, 'Link added ! Dont forget to join the Channel: @enclave_mercenaries')
-            bot.send_message(-1001301090623,id)
+            bot.send_message(-1001425560791,id)
         else:
             bot.reply_to(message, 'Invalid format!')
             
