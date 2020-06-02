@@ -11,6 +11,8 @@ def izdvojiID(tekst):
             id += i
     return id
 
+
+
 @bot.message_handler(commands=['start'])
 def start(message):
     if message.chat.type == "private":
@@ -26,14 +28,16 @@ def send_welcome(message):
             bot.send_message(-1001301090623,id)
         else:
             bot.reply_to(message, 'Invalid format!')
+            
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '#' in msg.text)
+
+@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
 # lambda function finds messages with the '@' sign in them
 # in case msg.text doesn't exist, the handler doesn't process it
 def at_converter(message):
     texts = message.text.split()
     at_text = findat(texts)
-    if at_text == '#': # in case it's just the '@', skip
+    if at_text == '@': # in case it's just the '@', skip
         pass
     else:
         insta_link = "https://m.rivalregions.com/#slide/profile/{}".format(at_text[1:])
