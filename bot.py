@@ -16,7 +16,7 @@ def izdvojiID(tekst):
 @bot.message_handler(commands=['roll'])
 def start(message):
     if message.chat.type == "private":
-        bot.reply_to(message, 'DICE= '🎲'')
+        bot.reply_to(message, ':dice')
 
 @bot.message_handler(commands=['add']) # register message handler
 def send_welcome(message):
