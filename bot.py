@@ -1,5 +1,5 @@
-import telepot
-from telepot.loop import MessageLoop
+import telebot
+from telebot.loop import MessageLoop
 import time
 import random
 from techlib import *
