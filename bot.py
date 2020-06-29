@@ -1,7 +1,7 @@
 import time
 import telebot
 
-TOKEN = "1236371364:AAGDTeEkbE-YomK0sF86qAFV8FepauKGdqE"
+TOKEN = "1277928698:AAGTxjacvBoQ33ouKEiTJoVv9F8b454GJyM"
 bot = telebot.TeleBot(token=TOKEN)
 
 def izdvojiID(tekst):
@@ -13,10 +13,10 @@ def izdvojiID(tekst):
 
 
 
-@bot.message_handler(commands=['start'])
+@bot.message_handler(commands=['roll'])
 def start(message):
     if message.chat.type == "private":
-        bot.reply_to(message, 'Hi, type /add to add your link in our db Use this format for add your profile /add + link, like this : /add https://m.rivalregions.com/#slide/profile/292833 "')
+        bot.reply_to(message, 'DICE= '🎲'')
 
 @bot.message_handler(commands=['add']) # register message handler
 def send_welcome(message):
