@@ -15,7 +15,7 @@ def send_welcome(message):
     bot.reply_to(message, '(placeholder text)')
 
 @bot.message_handler(commands=['roll']) # help message handler
-    bot.sendMessage(DICE= '🎲') #Genera un numero da 1 a 6 e lo invia all'utente
+    bot.sendMessage(message, 'DICE= '🎲'') #Genera un numero da 1 a 6 e lo invia all'utente
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
