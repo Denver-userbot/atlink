@@ -17,7 +17,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['roll'])
 def start(message):
-        bot.reply_to(message, random.randint(1,6))
+        bot.send_message(message, ":dice")
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
