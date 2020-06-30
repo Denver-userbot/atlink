@@ -1,7 +1,7 @@
 import time
 import telebot
 
-TOKEN = "1277928698:AAGTxjacvBoQ33ouKEiTJoVv9F8b454GJyM"
+TOKEN = "1364453333:AAEtzG_VFyoCwXgTXQ3rumzU0QnCxVFt3r4"
 bot = telebot.TeleBot(token=TOKEN)
 
 def findat(msg):
@@ -15,7 +15,7 @@ def send_welcome(message):
     bot.reply_to(message, '(placeholder text)')
 
 @bot.message_handler(commands=['roll']) # help message handler
-    bot.sendMessage(message, '🎲') #Genera un numero da 1 a 6 e lo invia all'utente
+    bot.reply_to(message, '🎲') #roll command
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
