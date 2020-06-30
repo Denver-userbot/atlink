@@ -15,6 +15,8 @@ def send_welcome(message):
     bot.reply_to(message, '(placeholder text)')
 
 @bot.message_handler(commands=['roll']) # help message handler
+def start(message):
+    if message.chat.type == "private":
     bot.reply_to(message, '🎲') #roll command
 
 
