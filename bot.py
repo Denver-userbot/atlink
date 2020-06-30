@@ -1,7 +1,7 @@
 import time
 import telebot
 
-TOKEN = "1364453333:AAEtzG_VFyoCwXgTXQ3rumzU0QnCxVFt3r4"
+TOKEN = "1364453333:AAHLlW-Zp0r0U0jEzA-Ibh_irDf5j5rLh5o"
 bot = telebot.TeleBot(token=TOKEN)
 
 def izdvojiID(tekst):
