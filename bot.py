@@ -1,5 +1,6 @@
 import time
 import telebot
+import random
 
 TOKEN = "1364453333:AAHLlW-Zp0r0U0jEzA-Ibh_irDf5j5rLh5o"
 bot = telebot.TeleBot(token=TOKEN)
