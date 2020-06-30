@@ -5,30 +5,19 @@ import random
 TOKEN = "1364453333:AAHLlW-Zp0r0U0jEzA-Ibh_irDf5j5rLh5o"
 bot = telebot.TeleBot(token=TOKEN)
 
-def izdvojiID(tekst):
-    id = ''
-    for i in tekst:
-        if i.isnumeric():
-            id += i
-    return id
-
-
+def findat(msg):
+    # from a list of texts, it finds the one with the '@' sign
+    for i in msg:
+        if '@' in i:
+            return i
+        
+@bot.message_handler(commands=['start']) # welcome message handler
+def send_welcome(message):
+    bot.reply_to(message, 'Type /roll for roll the dice ! ')
 
 @bot.message_handler(commands=['roll'])
 def start(message):
-    if message.chat.type == "private":
         bot.reply_to(message, random.randint(1,6))
-
-@bot.message_handler(commands=['add']) # register message handler
-def send_welcome(message):
-    if message.chat.type == "private":
-        if 'rivalregions.com/#slide/profile' in message.text:
-            id = izdvojiID(message.text)
-            #dodajuFajl(id)
-            bot.reply_to(message, 'Link added ! Dont forget to join the Channel: @enclave_mercenaries')
-            bot.send_message(-1001425560791,id)
-        else:
-            bot.reply_to(message, 'Invalid format!')
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
