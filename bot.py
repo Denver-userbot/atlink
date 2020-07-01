@@ -2,7 +2,7 @@ import time
 import telebot
 import random
 
-TOKEN = "1364453333:AAHLlW-Zp0r0U0jEzA-Ibh_irDf5j5rLh5o"
+TOKEN = "1322615277:AAH-GTPUfDVKF8Z0caF2vTrexJEPRcPl4o8"
 bot = telebot.TeleBot(token=TOKEN)
 
 def findat(msg):
