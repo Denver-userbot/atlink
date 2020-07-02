@@ -4,15 +4,8 @@ import random
 
 TOKEN = "1322615277:AAH-GTPUfDVKF8Z0caF2vTrexJEPRcPl4o8"
 bot = telebot.TeleBot(token=TOKEN)
-
-def findat(msg):
-    # from a list of texts, it finds the one with the '@' sign
-    for i in msg:
-        if '@' in i:
-            return i
-        
-        
-  def __init__(self, value, emoji, **kwargs):
+          
+def __init__(self, value, emoji, **kwargs):
         self.value = value
         self.emoji = emoji
 
