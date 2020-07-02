@@ -1,7 +1,7 @@
 import time
 import telebot
 import random
-from telegram import TelegramObject
+
 
 TOKEN = "1322615277:AAH-GTPUfDVKF8Z0caF2vTrexJEPRcPl4o8"
 bot = telebot.TeleBot(token=TOKEN)
