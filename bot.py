@@ -1,5 +1,6 @@
 import time
 import telebot
+import telegram
 import random
 from telegram import TelegramObject
 
