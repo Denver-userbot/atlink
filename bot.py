@@ -49,11 +49,11 @@ class Dice(TelegramObject):
         
 @bot.message_handler(commands=['start']) # welcome message handler
 def send_welcome(message):
-    bot.reply_to(message, 'Type /roll for roll the dice ! ')
+    bot.reply_to(message, '🎲 DiceRoll 🎲  👉 How to play? Add this bot in your favourite telegram group and lets roll your dice with your friends ! ')
 
 @bot.message_handler(commands=['roll'])
 def start(message):
-        bot.reply_to(message, `str`: '🎲')
+        bot.reply_to(message, str'🎲')
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
