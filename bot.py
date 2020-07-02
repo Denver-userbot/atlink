@@ -4,7 +4,7 @@ import telegram
 import random
 from telegram import TelegramObject
 
-TOKEN = "1322615277:AAH-GTPUfDVKF8Z0caF2vTrexJEPRcPl4o8"
+TOKEN = "1322615277:AAH5dpxQ7EqX3iOUJGcdS7m-7vbktQrNg8A"
 bot = telebot.TeleBot(token=TOKEN)
           
 class Dice(TelegramObject):
