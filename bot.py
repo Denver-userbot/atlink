@@ -11,13 +11,33 @@ def findat(msg):
         if '@' in i:
             return i
         
+        
+  def __init__(self, value, emoji, **kwargs):
+        self.value = value
+        self.emoji = emoji
+
+    @classmethod
+    def de_json(cls, data, bot):
+        if not data:
+            return None
+
+        return cls(**data)
+
+    DICE = '🎲'
+    """:obj:`str`: '🎲'"""
+    DARTS = '🎯'
+    """:obj:`str`: '🎯'"""
+    BASKETBALL = '🏀'
+    """:obj:`str`: '🏀'"""
+    ALL_EMOJI = [DICE, DARTS, BASKETBALL]
+        
 @bot.message_handler(commands=['start']) # welcome message handler
 def send_welcome(message):
     bot.reply_to(message, 'Type /roll for roll the dice ! ')
 
 @bot.message_handler(commands=['roll'])
 def start(message):
-        bot.reply_to(message, random.randint(1,6))
+        bot.reply_to(message, DICE = '🎲')
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
