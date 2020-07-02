@@ -1,6 +1,7 @@
 import time
 import telebot
 import random
+import TelegramObject
 
 
 TOKEN = "1322615277:AAH-GTPUfDVKF8Z0caF2vTrexJEPRcPl4o8"
@@ -52,7 +53,7 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['roll'])
 def start(message):
-        bot.reply_to(message, DICE = '🎲')
+        bot.reply_to(message,'🎲')
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
