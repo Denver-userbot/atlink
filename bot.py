@@ -4,7 +4,7 @@ import telegram
 import random
 from telegram import TelegramObject
 
-TOKEN = "1322615277:AAF2hv75QtxWnLbQgNb0Wx3_53rzPg_vNjQ"
+TOKEN = "1392244952:AAG0UbsIJ7rDM-JjLE9XvGPeOi1YBMior5k"
 bot = telebot.TeleBot(token=TOKEN)
           
 class Dice(TelegramObject):
@@ -54,6 +54,10 @@ def send_welcome(message):
 @bot.message_handler(commands=['roll'])
 def start(message):
         bot.reply_to(message, random.randint(1,6))
+
+@bot.message_handler(commands=['blackjack'])
+def start(message):
+        bot.reply_to(message, random.randint(A,J,Q K,2,3,4,5,6,7,8,9,10))
 
 
 @bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
