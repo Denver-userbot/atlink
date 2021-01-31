@@ -1,43 +1,52 @@
-import time
+import os
+
+from flask import Flask, request
+
 import telebot
-import telegram
-import random
-from telegram import TelegramObject
 
-TOKEN = "1392244952:AAG0UbsIJ7rDM-JjLE9XvGPeOi1YBMior5k"
-bot = telebot.TeleBot(token=TOKEN)
-          
-        
-@bot.message_handler(commands=['start']) # welcome message handler
+TOKEN = "1628306242:AAHk0d_JNtXqc7wAqeRrRs0eb3g9mVtqle0"
+bot = telebot.TeleBot(TOKEN)
+server = Flask(__name__)
+
+def izdvojiID(tekst):
+    id = ''
+    for i in tekst:
+        if i.isnumeric():
+            id += i
+    return id
+
+
+@bot.message_handler(commands=['start'])
+def start(message):
+    if message.chat.type == "private":
+        bot.reply_to(message, 'Hello This bot is to collect links for [@rrbroadcast_bot]\n, type /register to register your profile, eg "/register [your RR profile link here]\n -<i>A property of Antares Foundatio</i>"')
+
+@bot.message_handler(commands=['register']) # register message handler
 def send_welcome(message):
-    bot.reply_to(message, '🎲 DiceRoll 🎲  👉 How to play? Add this bot in your favourite telegram group and lets roll your dice with your friends ! ')
+    if message.chat.type == "private":
+        if 'rivalregions.com/#slide/profile' in message.text:
+            id = izdvojiID(message.text)
+            #dodajuFajl(id)
+            bot.reply_to(message, 'Link added succesfully!')
+            bot.send_message(935046373,id)
+        else:
+            bot.reply_to(message, 'Wrong format! Type /register [your RR profile link here](without the brackets) like this /register https://rivalregions.com/#slide/profile/1234567')
 
-@bot.message_handler(commands=['roll'])
-def start(message):
-        bot.reply_to(message, random.randint(1,6))
-
-@bot.message_handler(commands=['blackjack'])
-def start(message):
-        bot.reply_to(message, random.randint(1,10))
 
 
-@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
-# lambda function finds messages with the '@' sign in them
-# in case msg.text doesn't exist, the handler doesn't process it
-def at_converter(message):
-    texts = message.text.split()
-    at_text = findat(texts)
-    if at_text == '@': # in case it's just the '@', skip
-        pass
-    else:
-        insta_link = "https://instagram.com/{}".format(at_text[1:])
-        bot.reply_to(message, insta_link)
 
-while True:
-    try:
-        bot.polling(none_stop=True)
-        # ConnectionError and ReadTimeout because of possible timout of the requests library
-        # maybe there are others, therefore Exception
-    except Exception:
-        time.sleep(15)
+@server.route('/' + TOKEN, methods=['POST'])
+def getMessage():
+    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
+    return "!", 200
 
+
+@server.route("/")
+def webhook():
+    bot.remove_webhook()
+    bot.set_webhook(url='https://pacific-hollows-01627.herokuapp.com/' + TOKEN)
+    return "!", 200
+
+
+if __name__ == "__main__":
+    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
